@@ -10,14 +10,28 @@ html {
   box-sizing: inherit;
 }
 
-/*
- * Global layout stuff
- */
+nav{
+  font-family: "Bungee";
+  color: #FFFFFF;
+  background-color: #4056A1;
+  height: 120 px;
+  width : 100%;
+  z-index: 5;
+  padding:1.5em;
+}
 
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
+  font-family: "Source Sans Pro";
+  z-index:1;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  margin-left:5%;
+  margin-right:5%
 }
 
 /*

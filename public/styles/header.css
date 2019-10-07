@@ -1,0 +1,28 @@
+header{
+  height: 400px;
+  width: 100%;
+  background-color: #d8bfd8;
+  background-image: url("https://www.transparenttextures.com/patterns/paper-3.png");
+ 
+}
+
+#avatar{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+#name{
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+#firstName{
+  display: block;
+  
+}
+#lastName{
+  display: block;
+  
+}
