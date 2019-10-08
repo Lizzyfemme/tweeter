@@ -15,9 +15,11 @@ nav{
   color: #FFFFFF;
   background-color: #4056A1;
   height: 120 px;
-  width : 100%;
   z-index: 5;
   padding:1.5em;
+  position:fixed;
+  width : 100%;
+  top:0;
 }
 
 body {
@@ -25,13 +27,14 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: "Source Sans Pro";
-  z-index:1;
 }
 main {
+  position:relative;
   display: flex;
   flex-direction: column;
   margin-left:5%;
   margin-right:5%
+  
 }
 
 /*

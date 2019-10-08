@@ -1,0 +1,29 @@
+
+
+
+textarea{
+  width:100%;
+  border-top :none;
+  border-right: none;
+  border-left: none;
+  border-bottom-width: 1mm;
+  border-bottom-color: black;
+  font-weight: bloder;
+  color: black;
+  resize: none;
+  margin-top: 50px;
+  background-color: #f4f1ec;
+}
+
+input{
+  display: box;
+  font-family: "Bungee";
+  color: #FFFFFF;
+  background-color: #4056A1;
+  border: none;
+}
+.counter{
+  display: box;
+  font-family:"Bungee";
+  float: right;
+} 
