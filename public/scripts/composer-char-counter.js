@@ -1,9 +1,13 @@
 
 
 $(document).ready(() => {
-  var textCounter = $(".counter")
+  let textCounter = $(".counter")
+  textCounter.text(140);
   $("textarea").keypress((event)=>{
-    console.log(event.target.textLength)
-    textCounter.text(event.target.textLength)
+    textCounter.text(140 - (event.target.textLength + 1))
   });
 });
+
+let subtract = function(){
+
+};
