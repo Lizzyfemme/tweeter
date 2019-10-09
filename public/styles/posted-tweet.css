@@ -6,18 +6,10 @@ article.postedTweet{
 }
 article.postedTweet:hover{
   box-shadow:5px 10px;
-  display:box;
-  justify-content: right;
 }
 article.postedTweet:hover h3{
   display:block;
-  margin-left:auto;
-  margin-right: 10px;
-  font-size:25px;
-  font-weight: 50;
-  margin-top:16.75px;
 }
-
 article.postedTweet header{
   height:100px;
   display: flex;
@@ -46,6 +38,8 @@ article.postedTweet h2{
 }
 article.postedTweet h3{
   display:none;
+  margin-left:auto;
+  margin-right: 10px;
   font-size:25px;
   font-weight: 50;
   margin-top:16.75px;
