@@ -27,3 +27,7 @@ input{
   font-family:"Bungee";
   float: right;
 } 
+ 
+.negCounter{
+  color: #DC143C;
+}
