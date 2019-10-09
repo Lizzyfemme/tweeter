@@ -1,5 +1,5 @@
 // Fake data taken from initial-tweets.json
-const dataTEst = [
+const data = [
   {
     "user": {
       "name": "Newton",
@@ -30,7 +30,6 @@ for (let tweet of tweets){
   console.log("tweet of renderTweets", tweet)
   const $tweetElement = createTweetElement(tweet)
   console.log("renderTweets after the cb ",$tweetElement)
-  //main.appendChild(tweetElement)
   $('main').append($tweetElement)
 }
 
@@ -60,3 +59,29 @@ $tweetElement.append(markup);
 return $tweetElement;
 };
 
+const loadTweets = $(function(){
+  $.ajax({
+    url:"/tweets",
+    method:"GET",
+    data: $(".tweet-form").serialize(),
+    })
+})
+loadTweets ()
+
+
+$(document).ready(() => {
+
+$(".tweet-form").on("submit", function( event ) {
+  event.preventDefault();
+  $.ajax({
+    url:"/tweets",
+    method:"POST",
+    data: $(".tweet-form").serialize(),
+    },
+    function(response){
+      console.log('succeed',data)
+    })
+  console.log( $( this ).serialize() );
+});
+renderTweets(data) 
+});
