@@ -6,12 +6,13 @@ header{
   background-image: url("https://www.transparenttextures.com/patterns/paper-3.png");
   margin-top:100px;
   padding-top:10px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #avatar{
   display: block;
-  margin-left: auto;
-  margin-right: auto;
   
 }
 #name{
@@ -22,9 +23,12 @@ header{
 
 #firstName{
   display: block;
-  
+  font-weight: bolder;
+}
+#space{
+  width:10px;
 }
 #lastName{
   display: block;
-  
+  font-weight: lighter;
 }

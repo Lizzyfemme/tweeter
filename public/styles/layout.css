@@ -20,6 +20,8 @@ nav{
   position:fixed;
   width : 100%;
   top:0;
+  display:flex;
+  justify-content: space-between;
 }
 
 body {
@@ -36,6 +38,25 @@ main {
   margin-right:5%
   
 }
+button {
+  color:#ffffff;
+  background-color: transparent;
+  border: none;
+  float:right;
+  font-family: "Source Sans Pro";
+  font-weight: lighter;
+}
+button:focus{
+  outline:none;
+}
+button:hover {
+  background-color: dimgrey;
+}
+button:active {
+  background-color: #545149
+}
+
+
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions

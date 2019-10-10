@@ -1,3 +1,7 @@
+.nameAndPic{
+  display:flex;
+}
+
 article.postedTweet{
   border-color: black;
   border-width: 1mm;
@@ -12,7 +16,10 @@ article.postedTweet:hover h3{
 }
 article.postedTweet header{
   height:100px;
+  width:90vw;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   background-color: transparent;
   background-image: none;
   margin-top: 0px;
@@ -38,26 +45,30 @@ article.postedTweet h2{
 }
 article.postedTweet h3{
   display:none;
-  margin-left:auto;
-  margin-right: 10px;
+  
+  margin-right: 5vw;
+  padding-top: 0px;
+  margin-top: 5px;
   font-size:25px;
-  font-weight: 50;
-  margin-top:16.75px;
+  font-family:"Bungee";
+  font-weight: 20;
 }
 article.postedTweet p{
-  margin-left:25px;
+  margin-left:5vw;
+  margin-right:5vw;
   font-size:20px;
 }
 article.postedTweet footer{
   margin-left: 5%;
-  margin-right: 5%;
-  border-top-color: black;
-  border-left: transparent;
+  margin-right: 5%; 
+  border-bottom : transparent;
   border-right: transparent;
-  border-bottom: transparent;
+  border-left: transparent;
+  border-top-color: black;
   border-width: 1mm;
   border-style: solid;
-  display:flexbox;
+  display:flex;
+  justify-content: space-between;
 }
 article.postedTweet footer img{
   height: 10px;
