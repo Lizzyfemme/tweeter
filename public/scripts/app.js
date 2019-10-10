@@ -1,42 +1,25 @@
-// Fake data taken from initial-tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
+
+const validateTweet = function (data) {
+  $('.errorHandling').hide()
+  if (data === "" || data === null) {
+    $('.errorHandling').html("This tweet is not acceptable").show()
+  } else if (data.length > 140) {
+    $('.errorHandling').html("Sorry there is a 140 character maximum for tweets. Please shorten your message").show()
+  } else {
+    return true;
   }
-]
+};
 
-
-const renderTweets = function(tweets) {
-for (let tweet of tweets){
-  console.log("tweet of renderTweets", tweet)
-  const $tweetElement = createTweetElement(tweet)
-  console.log("renderTweets after the cb ",$tweetElement)
-  $('main').append($tweetElement)
+const renderTweets = function (tweets) {
+  for (let tweet of tweets) {
+    //console.log("tweet of renderTweets", tweet)
+    const $tweetElement = createTweetElement(tweet)
+    //console.log("renderTweets after the cb ", $tweetElement)
+    $('#tweet-container').prepend($tweetElement)
+  }
 }
 
-// takes return value and appends it to the tweets container
-}
-
-const createTweetElement = function(tweet) {
+const createTweetElement = function (tweet) {
 
   const markup = `
 <header>
@@ -52,36 +35,39 @@ const createTweetElement = function(tweet) {
   <img src="/images/square.jpg">
 </footer>
 `
-let $tweetElement = $('<article></article>').addClass('postedTweet');
-console.log($tweetElement)
-$tweetElement.append(markup);
+  let $tweetElement = $('<article></article>').addClass('postedTweet');
+  $tweetElement.html(markup);
 
-return $tweetElement;
+  return $tweetElement;
 };
 
-const loadTweets = $(function(){
+const loadTweets = function () {
   $.ajax({
-    url:"/tweets",
-    method:"GET",
-    data: $(".tweet-form").serialize(),
-    })
-})
-loadTweets ()
-
+    url: "/tweets",
+    method: "GET",
+    success: function (data) {
+      $('#tweet-container').html('');
+      renderTweets(data)
+    }
+  })
+}
 
 $(document).ready(() => {
+  loadTweets();
+  $(".tweet-form").on("submit", function (event) {
+    event.preventDefault();
+if (validateTweet($(".new-tweet-input").val())){
+    $.ajax({
+      url: "/tweets",
+      method: "POST",
+      data: $(".tweet-form").serialize(),
+      success: function (response) {
+        loadTweets();
 
-$(".tweet-form").on("submit", function( event ) {
-  event.preventDefault();
-  $.ajax({
-    url:"/tweets",
-    method:"POST",
-    data: $(".tweet-form").serialize(),
-    },
-    function(response){
-      console.log('succeed',data)
+      }
     })
-  console.log( $( this ).serialize() );
+  }
 });
-renderTweets(data) 
+  
 });
+
