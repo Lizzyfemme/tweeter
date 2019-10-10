@@ -24,18 +24,19 @@ const createTweetElement = function (tweet) {
   const markup = `
 <header>
   <div class= "nameAndPic">
-  
-  <img src =${tweet.user.avatars}>
-  <h1>${tweet.user.name}</h1>
+    <img src =${tweet.user.avatars}>
+    <h1>${tweet.user.name}</h1>
   </div>
   <h3>${tweet.user.handle}</h3>
 </header>
 <p>${tweet.content.text}</p>
 <footer>
   <h2>${tweet.content.create_at}</h2>
-  <img src="/images/heart.png">
-  <img src="/images/flag.png">
-  <img src="/images/square.jpg">
+  <div class="icons">
+    <img src="/images/heart.png">
+    <img src="/images/flag.png">
+    <img src="/images/square.jpg">
+  </div>
 </footer>
 `
   let $tweetElement = $('<article></article>').addClass('postedTweet');
