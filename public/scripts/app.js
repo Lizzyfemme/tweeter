@@ -2,7 +2,7 @@
 const validateTweet = function (data) {
   $('.errorHandling').hide()
   if (data === "" || data === null) {
-    $('.errorHandling').html("This tweet is not acceptable").show()
+    $('.errorHandling').html("Tweets must contain data. Please edit your tweet.").show()
   } else if (data.length > 140) {
     $('.errorHandling').html("Sorry there is a 140 character maximum for tweets. Please shorten your message").show()
   } else {
@@ -23,8 +23,11 @@ const createTweetElement = function (tweet) {
 
   const markup = `
 <header>
-  <h1>${tweet.user.name}</h1>
+  <div class= "nameAndPic">
+  
   <img src =${tweet.user.avatars}>
+  <h1>${tweet.user.name}</h1>
+  </div>
   <h3>${tweet.user.handle}</h3>
 </header>
 <p>${tweet.content.text}</p>
