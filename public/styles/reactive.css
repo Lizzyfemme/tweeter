@@ -73,4 +73,7 @@
         margin-top:95px;
         padding-top:10px;
       }
+      article.postedTweet header{
+        width:100%;
+      }
     }
