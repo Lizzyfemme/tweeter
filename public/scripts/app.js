@@ -31,7 +31,7 @@ const createTweetElement = function (tweet) {
 </header>
 <p>${tweet.content.text}</p>
 <footer>
-  <h2>${tweet.content.create_at}</h2>
+  <h2>${moment(tweet.created_at).fromNow()}</h2>
   <div class="icons">
     <img src="/images/heart.png">
     <img src="/images/flag.png">
