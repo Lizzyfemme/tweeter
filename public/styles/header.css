@@ -24,6 +24,7 @@ header{
 #firstName{
   display: block;
   font-weight: bolder;
+  padding-right:3px;
 }
 #space{
   width:10px;
@@ -31,4 +32,5 @@ header{
 #lastName{
   display: block;
   font-weight: lighter;
+  padding-left:3px;
 }

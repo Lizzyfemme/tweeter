@@ -1,26 +1,30 @@
 
+// validateTweet is a function that checks the tweets for errors, it returns true if the tweet is valid
 const validateTweet = function (data) {
-  $('.errorHandling').hide()
-  if (data === "" || data === null) {
-    $('.errorHandling').html("Tweets must contain data. Please edit your tweet.").show()
-  } else if (data.length > 140) {
-    $('.errorHandling').html("Sorry there is a 140 character maximum for tweets. Please shorten your message").show()
-  } else {
-    return true;
-  }
+  if (!data) throw "Tweets must contain data. Please edit your tweet."
+  if (data.length > 140) throw "Sorry there is a 140 character maximum for tweets. Please shorten your message"
+  return true;
 };
+
+const throwError = function (msg) {
+   if (msg) {
+    const errorArea = $('.errorHandling');
+    // "Tweets must contain data. Please edit your tweet."
+    errorArea.html(msg).show();
+   }
+ };
+
+/* renderTweets is a function that interates over the tweets and adds then to the tweet container.*/
 
 const renderTweets = function (tweets) {
   for (let tweet of tweets) {
-    //console.log("tweet of renderTweets", tweet)
     const $tweetElement = createTweetElement(tweet)
-    //console.log("renderTweets after the cb ", $tweetElement)
     $('#tweet-container').prepend($tweetElement)
   }
 }
 
+//createTweetElement is a function that formats the tweets to the correct html
 const createTweetElement = function (tweet) {
-
   const markup = `
 <header>
   <div class= "nameAndPic">
@@ -41,10 +45,9 @@ const createTweetElement = function (tweet) {
 `
   let $tweetElement = $('<article></article>').addClass('postedTweet');
   $tweetElement.html(markup);
-
   return $tweetElement;
 };
-
+//loadTweets is a function that retrieve tweets
 const loadTweets = function () {
   $.ajax({
     url: "/tweets",
@@ -55,12 +58,15 @@ const loadTweets = function () {
     }
   })
 }
-
+//where new tweets are validated, posted and displayed
 $(document).ready(() => {
   loadTweets();
   $(".tweet-form").on("submit", function (event) {
     event.preventDefault();
-if (validateTweet($(".new-tweet-input").val())){
+  const errorArea = $('.errorHandling');
+  errorArea.hide();
+  try {
+    validateTweet($(".new-tweet-input").val());
     $.ajax({
       url: "/tweets",
       method: "POST",
@@ -71,6 +77,8 @@ if (validateTweet($(".new-tweet-input").val())){
         $(".new-tweet-input").val('');
       }
     })
+  } catch (msg) {
+    throwError (msg);
   }
 });
   

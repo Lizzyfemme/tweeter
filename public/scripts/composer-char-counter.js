@@ -1,4 +1,5 @@
 
+/*This makes the character counter count down and change to red if there are mor than 140 characters*/
 
 $(document).ready(() => {
   let textCounter = $(".counter");
