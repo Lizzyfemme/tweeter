@@ -1,4 +1,4 @@
 $("button").click(function () {
-  $(".new-tweet").slideDown("slow", function () {
+  $(".new-tweet").slideToggle("slow", function () {
   });
 });

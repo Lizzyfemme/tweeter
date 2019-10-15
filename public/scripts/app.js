@@ -67,7 +67,8 @@ if (validateTweet($(".new-tweet-input").val())){
       data: $(".tweet-form").serialize(),
       success: function (response) {
         loadTweets();
-
+        //new line
+        $(".new-tweet-input").val('');
       }
     })
   }

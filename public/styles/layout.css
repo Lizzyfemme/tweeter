@@ -47,7 +47,9 @@ button {
   font-weight: lighter;
 }
 button:focus{
-  outline:none;
+  outline: dimgrey;
+  outline-style: solid;
+  outline-width: 2px;
 }
 button:hover {
   background-color: dimgrey;

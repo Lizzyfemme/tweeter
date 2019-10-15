@@ -29,6 +29,14 @@ input:hover {
 input:active {
   background-color: #545149
 }
+input:focus{
+  outline: dimgrey;
+  outline-style: solid;
+  outline-width: 2px;
+}
+input:active button {
+  background-color: #545149;
+}
 .counter{
   display: box;
   font-family:"Bungee";
